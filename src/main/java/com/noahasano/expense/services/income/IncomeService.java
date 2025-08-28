@@ -1,5 +1,8 @@
 package com.noahasano.expense.services.income;
 
-public interface IncomeService {
+import com.noahasano.expense.dto.IncomeDTO;
+import com.noahasano.expense.entity.Income;
 
+public interface IncomeService {
+    Income postIncome(IncomeDTO incomeDTO);
 }
