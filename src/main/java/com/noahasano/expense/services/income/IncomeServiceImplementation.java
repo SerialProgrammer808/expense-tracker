@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.noahasano.expense.dto.IncomeDTO;
-import com.noahasano.expense.entity.Expense;
 import com.noahasano.expense.entity.Income;
 import com.noahasano.expense.repository.IncomeRepository;
 
@@ -46,6 +45,15 @@ public class IncomeServiceImplementation implements IncomeService {
         Optional<Income> optionalIncome = incomeRepository.findById(id);
         if (optionalIncome.isPresent()) {
             return saveOrUpdatIncome(optionalIncome.get(), incomeDTO);
+        } else {
+            throw new EntityNotFoundException("Income with id " + id + " could not be found");
+        }
+    }
+
+    public IncomeDTO getIncomeById(Long id) {
+        Optional<Income> optionalIncome = incomeRepository.findById(id);
+        if (optionalIncome.isPresent()) {
+            return optionalIncome.get().getIncomeDTO();
         } else {
             throw new EntityNotFoundException("Income with id " + id + " could not be found");
         }
