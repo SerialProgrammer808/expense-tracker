@@ -1,7 +1,6 @@
 package com.noahasano.expense.controller;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +13,8 @@ import com.noahasano.expense.services.income.IncomeService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+
 
 
 @RestController
@@ -32,5 +33,10 @@ public class IncomeController {
         } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
+    }
+    
+    @GetMapping("/all")
+    public ResponseEntity<?> getAllIncomes() {
+        return ResponseEntity.ok(incomeService.getAllIncomes());
     }
 }
