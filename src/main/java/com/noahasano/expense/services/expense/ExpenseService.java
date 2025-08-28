@@ -8,4 +8,5 @@ import com.noahasano.expense.entity.Expense;
 public interface ExpenseService {
     Expense postExpense(ExpenseDTO expenseDTO);
     List<Expense> getAllExpenses();
+    Expense getExpenseById(Long id);
 }
