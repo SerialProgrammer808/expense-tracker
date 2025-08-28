@@ -11,9 +11,13 @@ import com.noahasano.expense.dto.IncomeDTO;
 import com.noahasano.expense.entity.Income;
 import com.noahasano.expense.services.income.IncomeService;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 
 
@@ -38,5 +42,16 @@ public class IncomeController {
     @GetMapping("/all")
     public ResponseEntity<?> getAllIncomes() {
         return ResponseEntity.ok(incomeService.getAllIncomes());
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateIncome(@PathVariable Long id, @RequestBody IncomeDTO incomeDTO) {
+        try {
+            return ResponseEntity.ok(incomeService.updateIncome(id, incomeDTO));
+        } catch (EntityNotFoundException ex) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("something went wrong");
+        }
     }
 }

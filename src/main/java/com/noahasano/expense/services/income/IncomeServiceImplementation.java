@@ -2,6 +2,7 @@ package com.noahasano.expense.services.income;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import com.noahasano.expense.entity.Expense;
 import com.noahasano.expense.entity.Income;
 import com.noahasano.expense.repository.IncomeRepository;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -38,5 +40,14 @@ public class IncomeServiceImplementation implements IncomeService {
         .sorted(Comparator.comparing(Income::getDate).reversed())
         .map(Income::getIncomeDTO)
         .collect(Collectors.toList());
+    }
+
+    public Income updateIncome(Long id, IncomeDTO incomeDTO) {
+        Optional<Income> optionalIncome = incomeRepository.findById(id);
+        if (optionalIncome.isPresent()) {
+            return saveOrUpdatIncome(optionalIncome.get(), incomeDTO);
+        } else {
+            throw new EntityNotFoundException("Income with id " + id + " could not be found");
+        }
     }
 }
