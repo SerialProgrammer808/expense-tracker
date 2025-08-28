@@ -1,5 +1,8 @@
 package com.noahasano.expense.services.expense;
 
-public interface ExpenseService {
+import com.noahasano.expense.dto.ExpenseDTO;
+import com.noahasano.expense.entity.Expense;
 
+public interface ExpenseService {
+    Expense postExpense(ExpenseDTO expenseDTO);
 }
