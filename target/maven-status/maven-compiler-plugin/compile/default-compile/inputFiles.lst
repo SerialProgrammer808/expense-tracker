@@ -5,6 +5,7 @@
 /Users/noahasano/Desktop/Career/Personal Projects/expense-tracker/src/main/java/com/noahasano/expense/dto/ExpenseDTO.java
 /Users/noahasano/Desktop/Career/Personal Projects/expense-tracker/src/main/java/com/noahasano/expense/dto/GraphDTO.java
 /Users/noahasano/Desktop/Career/Personal Projects/expense-tracker/src/main/java/com/noahasano/expense/dto/IncomeDTO.java
+/Users/noahasano/Desktop/Career/Personal Projects/expense-tracker/src/main/java/com/noahasano/expense/dto/StatsDTO.java
 /Users/noahasano/Desktop/Career/Personal Projects/expense-tracker/src/main/java/com/noahasano/expense/entity/Expense.java
 /Users/noahasano/Desktop/Career/Personal Projects/expense-tracker/src/main/java/com/noahasano/expense/entity/Income.java
 /Users/noahasano/Desktop/Career/Personal Projects/expense-tracker/src/main/java/com/noahasano/expense/repository/ExpenseRepository.java
