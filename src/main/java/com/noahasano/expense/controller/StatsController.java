@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
+
 @RestController
 @RequestMapping("/api/stats")
 @RequiredArgsConstructor
@@ -24,5 +25,10 @@ public class StatsController {
     @GetMapping("/chart")
     public ResponseEntity<GraphDTO> getChartDetails() {
         return ResponseEntity.ok(statsService.getChartData());
+    }
+
+    @GetMapping
+    public ResponseEntity<?> getStats() {
+        return ResponseEntity.ok(statsService.getStats());
     }
 }
