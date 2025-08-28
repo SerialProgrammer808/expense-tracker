@@ -12,6 +12,11 @@ import com.noahasano.expense.entity.Expense;
 import com.noahasano.expense.services.expense.ExpenseService;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+
+
 
 @RestController
 @RequestMapping("/api/expense")
@@ -20,7 +25,8 @@ import lombok.RequiredArgsConstructor;
 public class ExpenseController {
 
     private final ExpenseService expenseService;
-
+    
+    @PostMapping
     public ResponseEntity<?> postExpense(@RequestBody ExpenseDTO dto) {
         Expense createdExpense = expenseService.postExpense(dto);
         if (createdExpense != null) {
@@ -28,5 +34,10 @@ public class ExpenseController {
         } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
+    }
+    
+    @GetMapping("/all")
+    public ResponseEntity<?> getAllExpenses() {
+        return ResponseEntity.ok(expenseService.getAllExpenses());
     }
 }
