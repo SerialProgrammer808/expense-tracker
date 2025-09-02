@@ -18,4 +18,5 @@ public class IncomeDTO {
     private String category;
 
     private String description;
+    
 }
