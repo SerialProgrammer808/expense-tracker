@@ -11,11 +11,11 @@ public class ExpenseDTO {
 
     private String title;
 
-    private String description;
-
-    private String category;
+    private Integer amount;
 
     private LocalDate date;
 
-    private Integer amount;
+    private String category;
+
+    private String description;
 }

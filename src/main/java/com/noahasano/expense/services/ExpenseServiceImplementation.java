@@ -50,7 +50,7 @@ public class ExpenseServiceImplementation implements ExpenseService{
         }
     }
 
-    public Expense updatExpense(Long id, ExpenseDTO expenseDTO) {
+    public Expense updateExpense(Long id, ExpenseDTO expenseDTO) {
         Optional<Expense> optionalExpense = expenseRepository.findById(id);
         if (optionalExpense.isPresent()) {
             return saveOrUpdateExpense(optionalExpense.get(), expenseDTO);

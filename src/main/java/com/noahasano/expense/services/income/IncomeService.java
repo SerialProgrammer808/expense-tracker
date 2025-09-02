@@ -7,8 +7,8 @@ import com.noahasano.expense.entity.Income;
 
 public interface IncomeService {
     Income postIncome(IncomeDTO incomeDTO);
-    List<IncomeDTO> getAllIncomes();
+    List<Income> getAllIncomes();
+    Income getIncomeById(Long id);
     Income updateIncome(Long id, IncomeDTO incomeDTO);
-    public IncomeDTO getIncomeById(Long id);
     void deleteIncome(Long id);
 }

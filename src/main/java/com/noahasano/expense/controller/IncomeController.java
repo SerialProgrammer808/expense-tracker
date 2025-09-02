@@ -46,10 +46,10 @@ public class IncomeController {
         return ResponseEntity.ok(incomeService.getAllIncomes());
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<?> updateIncome(@PathVariable Long id, @RequestBody IncomeDTO incomeDTO) {
+        @GetMapping("/{id}")
+    public ResponseEntity<?> getIncomeById(@PathVariable Long id) {
         try {
-            return ResponseEntity.ok(incomeService.updateIncome(id, incomeDTO));
+            return ResponseEntity.ok(incomeService.getIncomeById(id));
         } catch (EntityNotFoundException ex) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
         } catch (Exception e) {
@@ -57,10 +57,10 @@ public class IncomeController {
         }
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<?> getIncomeById(@PathVariable Long id) {
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateIncome(@PathVariable Long id, @RequestBody IncomeDTO incomeDTO) {
         try {
-            return ResponseEntity.ok(incomeService.getIncomeById(id));
+            return ResponseEntity.ok(incomeService.updateIncome(id, incomeDTO));
         } catch (EntityNotFoundException ex) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
         } catch (Exception e) {

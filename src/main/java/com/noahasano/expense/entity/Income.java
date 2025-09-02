@@ -27,16 +27,4 @@ public class Income {
     private String category;
 
     private String description;
-
-    public IncomeDTO getIncomeDTO() {
-        IncomeDTO incomeDTO = new IncomeDTO();
-        incomeDTO.setId(id);
-        incomeDTO.setTitle(title);
-        incomeDTO.setAmount(amount);
-        incomeDTO.setCategory(category);
-        incomeDTO.setDescription(description);
-        incomeDTO.setDate(date);
-
-        return incomeDTO;
-    }
 }
