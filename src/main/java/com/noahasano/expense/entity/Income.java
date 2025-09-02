@@ -2,8 +2,6 @@ package com.noahasano.expense.entity;
 
 import java.time.LocalDate;
 
-import com.noahasano.expense.dto.IncomeDTO;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
