@@ -1,5 +1,6 @@
 package com.noahasano.expense.dto;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import lombok.Data;
@@ -11,7 +12,7 @@ public class IncomeDTO {
 
     private String title;
 
-    private Integer amount;
+    private BigDecimal amount;
 
     private LocalDate date;
 

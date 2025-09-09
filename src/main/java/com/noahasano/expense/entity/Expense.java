@@ -1,5 +1,6 @@
 package com.noahasano.expense.entity;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import com.noahasano.expense.dto.ExpenseDTO;
@@ -25,7 +26,7 @@ public class Expense {
     private String description;
     private String category;
     private LocalDate date;
-    private Integer amount;
+    private BigDecimal amount;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)

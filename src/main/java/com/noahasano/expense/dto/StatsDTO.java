@@ -1,8 +1,5 @@
 package com.noahasano.expense.dto;
 
-import com.noahasano.expense.entity.Expense;
-import com.noahasano.expense.entity.Income;
-
 import lombok.Data;
 
 @Data
@@ -12,9 +9,9 @@ public class StatsDTO {
 
     private Double expense;
 
-    private Income latestIncome;
+    private IncomeDTO latestIncome;
 
-    private Expense latestExpense;
+    private ExpenseDTO latestExpense;
 
     private Double balance;
 

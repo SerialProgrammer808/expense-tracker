@@ -39,6 +39,7 @@ public class StatsServiceImplementation implements StatsService {
     }
 
     public StatsDTO getStats(String username) {
+
         User user = userService.findByUsername(username);
         Long userId = user.getId();
         
@@ -52,8 +53,8 @@ public class StatsServiceImplementation implements StatsService {
         statsDTO.setExpense(totalExpense != null ? totalExpense : 0.0);
         statsDTO.setIncome(totalIncome != null ? totalIncome : 0.0);
 
-        optionalIncome.ifPresent(statsDTO::setLatestIncome);
-        optionalExpense.ifPresent(statsDTO::setLatestExpense);
+        optionalExpense.ifPresent(expense -> statsDTO.setLatestExpense(expense.getExpenseDTO()));
+        optionalIncome.ifPresent(income -> statsDTO.setLatestIncome(income.getIncomeDTO()));
 
         statsDTO.setBalance(statsDTO.getIncome() - statsDTO.getExpense());
 
