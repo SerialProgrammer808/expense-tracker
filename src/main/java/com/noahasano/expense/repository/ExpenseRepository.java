@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.noahasano.expense.entity.Expense;
@@ -13,10 +14,14 @@ import com.noahasano.expense.entity.Expense;
 @Repository
 public interface ExpenseRepository extends JpaRepository<Expense, Long> {
 
-    List<Expense> findByDateBetween(LocalDate starDate, LocalDate endDate);
+    List<Expense> findByUserIdAndDateBetweenOrderByDateDesc(Long userId, LocalDate startDate, LocalDate endDate);
+    
+    List<Expense> findByUserIdOrderByDateDesc(Long userId);
 
-    @Query("SELECT SUM(e.amount) FROM Expense e")
-    Double sumAllAmounts();
+    @Query("SELECT SUM(e.amount) FROM Expense e WHERE e.user.id = :userId")
+    Double sumAllAmountsByUserId(@Param("userId") Long userId);
 
-    Optional<Expense> findFirstByOrderByDateDesc();
+    Optional<Expense> findFirstByUserIdOrderByDateDesc(Long userId);
+    
+    Optional<Expense> findByIdAndUserId(Long id, Long userId);
 }

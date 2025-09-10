@@ -6,9 +6,10 @@ import com.noahasano.expense.dto.ExpenseDTO;
 import com.noahasano.expense.entity.Expense;
 
 public interface ExpenseService {
-    Expense postExpense(ExpenseDTO expenseDTO);
-    List<Expense> getAllExpenses();
-    Expense getExpenseById(Long id);
-    Expense updateExpense(Long id, ExpenseDTO expenseDTO);
-    void deleteExpense(Long id);
+    
+    Expense postExpense(ExpenseDTO expenseDTO, String username);
+    List<ExpenseDTO> getAllExpenses(String username);
+    ExpenseDTO getExpenseById(Long id, String username);
+    Expense updateExpense(Long id, ExpenseDTO expenseDTO, String username);
+    void deleteExpense(Long id, String username);
 }

@@ -6,9 +6,10 @@ import com.noahasano.expense.dto.IncomeDTO;
 import com.noahasano.expense.entity.Income;
 
 public interface IncomeService {
-    Income postIncome(IncomeDTO incomeDTO);
-    List<Income> getAllIncomes();
-    Income getIncomeById(Long id);
-    Income updateIncome(Long id, IncomeDTO incomeDTO);
-    void deleteIncome(Long id);
+    
+    Income postIncome(IncomeDTO incomeDTO, String username);
+    List<IncomeDTO> getAllIncomes(String username);
+    IncomeDTO getIncomeById(Long id, String username);
+    Income updateIncome(Long id, IncomeDTO incomeDTO, String username);
+    void deleteIncome(Long id, String username);
 }

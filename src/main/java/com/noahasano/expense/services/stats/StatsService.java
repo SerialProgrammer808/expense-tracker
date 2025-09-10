@@ -4,6 +4,7 @@ import com.noahasano.expense.dto.GraphDTO;
 import com.noahasano.expense.dto.StatsDTO;
 
 public interface StatsService {
-    GraphDTO getChartData();
-    StatsDTO getStats();
+    
+    GraphDTO getChartData(String username);
+    StatsDTO getStats(String username);
 }
