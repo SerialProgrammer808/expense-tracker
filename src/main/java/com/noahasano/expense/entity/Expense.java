@@ -3,6 +3,7 @@ package com.noahasano.expense.entity;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.noahasano.expense.dto.ExpenseDTO;
 
 import jakarta.persistence.Entity;
@@ -30,6 +31,7 @@ public class Expense {
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
+    @JsonIgnore
     private User user;
 
     public ExpenseDTO getExpenseDTO() {
