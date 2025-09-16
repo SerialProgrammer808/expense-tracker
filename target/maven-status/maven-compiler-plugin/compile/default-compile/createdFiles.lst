@@ -12,6 +12,7 @@ com/noahasano/expense/ExpenseApplication.class
 com/noahasano/expense/entity/Expense.class
 com/noahasano/expense/controller/AuthController.class
 com/noahasano/expense/dto/UserDTO.class
+com/noahasano/expense/services/expense/ExpenseServiceImplementation.class
 com/noahasano/expense/controller/ExpenseController.class
 com/noahasano/expense/services/income/IncomeService.class
 com/noahasano/expense/dto/RegisterRequest.class
